@@ -55,7 +55,8 @@ class ConvertCommand extends Command
             $workflow->addFilter(new SkipFirstFilter(1));
         } else if ($inputFormat === 'xlsx' || $inputFormat === 'xls') {
             $reader = new ExcelReader(PHPExcel_IOFactory::load($inputFile));
-            $reader->setHeaderRow(0);
+            $workflow->addConverter(new HeaderConverter());
+            $workflow->addFilter(new SkipFirstFilter(1));
         } else {
             $output->writeln(sprintf('<error>Invalid input file format %s.</error>', $inputFormat));
 
