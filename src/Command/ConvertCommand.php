@@ -3,14 +3,16 @@
 namespace FlorianEc\CsvExcel\Command;
 
 use PHPExcel_IOFactory;
+use Plum\Plum\Converter\HeaderConverter;
 use Plum\Plum\Filter\SkipFirstFilter;
 use Plum\Plum\Workflow;
-use Plum\PlumCsv\CsvHeaderConverter;
+use Plum\PlumConsole\ConsoleProgressWriter;
 use Plum\PlumCsv\CsvReader;
 use Plum\PlumCsv\CsvWriter;
 use Plum\PlumExcel\ExcelReader;
 use Plum\PlumExcel\ExcelWriter;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -49,7 +51,7 @@ class ConvertCommand extends Command
         $workflow = new Workflow();
         if ($inputFormat === 'csv') {
             $reader = new CsvReader($inputFile);
-            $workflow->addConverter(new CsvHeaderConverter());
+            $workflow->addConverter(new HeaderConverter());
             $workflow->addFilter(new SkipFirstFilter(1));
         } else if ($inputFormat === 'xlsx' || $inputFormat === 'xls') {
             $reader = new ExcelReader(PHPExcel_IOFactory::load($inputFile));
@@ -72,10 +74,13 @@ class ConvertCommand extends Command
             return;
         }
         $workflow->addWriter($writer);
+        $workflow->addWriter(new ConsoleProgressWriter(new ProgressBar($output, $reader->count())));
 
         $result = $workflow->process($reader);
 
-        $output->writeln(sprintf('Read items:    %s', $result->getReadCount()));
-        $output->writeln(sprintf('Written items: %s', $result->getItemWriteCount()));
+        $output->writeln('');
+        $output->writeln(sprintf('Read items:    %d', $result->getReadCount()));
+        $output->writeln(sprintf('Written items: %d', $result->getItemWriteCount()));
+        $output->writeln(sprintf('Error items:   %d', $result->getErrorCount()));
     }
 }

@@ -1,10 +1,11 @@
 {
   "name": "florianeckerstorfer/csvexcel",
   "require": {
-    "plumphp/plum":       "dev-master@dev",
-    "plumphp/plum-csv":   "dev-master@dev",
-    "plumphp/plum-excel": "dev-master@dev",
-    "symfony/console":    "~2.6"
+    "plumphp/plum":         "dev-master@dev",
+    "plumphp/plum-csv":     "dev-master@dev",
+    "plumphp/plum-excel":   "dev-master@dev",
+    "plumphp/plum-console": "dev-master@dev",
+    "symfony/console":      "~2.6"
   },
   "autoload": {
     "psr-4": {

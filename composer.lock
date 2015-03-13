@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bb09e0f69695def03c0a56849b3c48d2",
+    "hash": "098023e56442a7d3f73b0ac05f1bff31",
     "packages": [
         {
             "name": "league/csv",
@@ -124,12 +124,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum.git",
-                "reference": "49a15d702cd16f067a555bf41a6ca7051bbfae14"
+                "reference": "31114da577135e1c833b84a05b3b654cb2e52d1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum/zipball/49a15d702cd16f067a555bf41a6ca7051bbfae14",
-                "reference": "49a15d702cd16f067a555bf41a6ca7051bbfae14",
+                "url": "https://api.github.com/repos/plumphp/plum/zipball/31114da577135e1c833b84a05b3b654cb2e52d1f",
+                "reference": "31114da577135e1c833b84a05b3b654cb2e52d1f",
                 "shasum": ""
             },
             "require": {
@@ -157,7 +157,48 @@
                 }
             ],
             "description": "Plum is a data processing pipeline that helps you to write structured, reusable and well tested data processing code.",
-            "time": "2015-03-08 22:20:37"
+            "time": "2015-03-13 13:00:22"
+        },
+        {
+            "name": "plumphp/plum-console",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/plumphp/plum-console.git",
+                "reference": "ad11e55dc1ce9b2e0aecde3fa6b527e5ff283948"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/plumphp/plum-console/zipball/ad11e55dc1ce9b2e0aecde3fa6b527e5ff283948",
+                "reference": "ad11e55dc1ce9b2e0aecde3fa6b527e5ff283948",
+                "shasum": ""
+            },
+            "require": {
+                "plumphp/plum": "dev-master@dev",
+                "symfony/console": "~2.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Plum\\PlumConsole\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co"
+                }
+            ],
+            "description": "Integrates the Symfony Console component into Plum.",
+            "time": "2015-02-11 21:56:56"
         },
         {
             "name": "plumphp/plum-csv",
@@ -165,12 +206,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum-csv.git",
-                "reference": "bfe1be8f80662b05f48eb7b8fa26c34d8c53b74c"
+                "reference": "007cc0dad93af25fbf35900099a19625f364a97b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum-csv/zipball/bfe1be8f80662b05f48eb7b8fa26c34d8c53b74c",
-                "reference": "bfe1be8f80662b05f48eb7b8fa26c34d8c53b74c",
+                "url": "https://api.github.com/repos/plumphp/plum-csv/zipball/007cc0dad93af25fbf35900099a19625f364a97b",
+                "reference": "007cc0dad93af25fbf35900099a19625f364a97b",
                 "shasum": ""
             },
             "require": {
@@ -188,7 +229,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-03-13 10:38:38"
+            "time": "2015-03-13 13:15:18"
         },
         {
             "name": "plumphp/plum-excel",
@@ -344,7 +385,8 @@
     "stability-flags": {
         "plumphp/plum": 20,
         "plumphp/plum-csv": 20,
-        "plumphp/plum-excel": 20
+        "plumphp/plum-excel": 20,
+        "plumphp/plum-console": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
