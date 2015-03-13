@@ -1,0 +1,81 @@
+<?php
+
+namespace FlorianEc\CsvExcel\Command;
+
+use PHPExcel_IOFactory;
+use Plum\Plum\Filter\SkipFirstFilter;
+use Plum\Plum\Workflow;
+use Plum\PlumCsv\CsvHeaderConverter;
+use Plum\PlumCsv\CsvReader;
+use Plum\PlumCsv\CsvWriter;
+use Plum\PlumExcel\ExcelReader;
+use Plum\PlumExcel\ExcelWriter;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+/**
+ * CsvToExcelCommand
+ *
+ * @package   FlorianEc\CsvExcel\Command
+ * @author    Florian Eckerstorfer <florian@eckerstorfer.co>
+ * @copyright 2015 Florian Eckerstorfer
+ * @license   http://opensource.org/licenses/MIT The MIT License
+ */
+class ConvertCommand extends Command
+{
+    protected function configure()
+    {
+        $this->setName('convert')
+             ->setDescription('Convert CSV to Excel or Excel to CSV')
+             ->addArgument('input', InputArgument::REQUIRED, 'Input file')
+             ->addArgument('output', InputArgument::REQUIRED, 'Output file');
+    }
+
+    /**
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     */
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $inputFile  = $input->getArgument('input');
+        $outputFile = $input->getArgument('output');
+        $inputFormat  = substr($inputFile, strrpos($inputFile, '.')+1);
+        $outputFormat = substr($outputFile, strrpos($outputFile, '.')+1);
+
+        $output->writeln(sprintf('Convert <info>%s</info> into <info>%s</info>', $inputFormat, $outputFormat));
+
+        $workflow = new Workflow();
+        if ($inputFormat === 'csv') {
+            $reader = new CsvReader($inputFile);
+            $workflow->addConverter(new CsvHeaderConverter());
+            $workflow->addFilter(new SkipFirstFilter(1));
+        } else if ($inputFormat === 'xlsx' || $inputFormat === 'xls') {
+            $reader = new ExcelReader(PHPExcel_IOFactory::load($inputFile));
+            $reader->setHeaderRow(0);
+        } else {
+            $output->writeln(sprintf('<error>Invalid input file format %s.</error>', $inputFormat));
+
+            return;
+        }
+
+        if ($outputFormat === 'csv') {
+            $writer = new CsvWriter($outputFile);
+            $writer->autoDetectHeader();
+        } else if ($outputFormat === 'xlsx' || $outputFormat == 'xls') {
+            $writer = new ExcelWriter($outputFile);
+            $writer->autoDetectHeader();
+        } else {
+            $output->writeln(sprintf('<error>Invalid output file format: %s</error>', $outputFormat));
+
+            return;
+        }
+        $workflow->addWriter($writer);
+
+        $result = $workflow->process($reader);
+
+        $output->writeln(sprintf('Read items:    %s', $result->getReadCount()));
+        $output->writeln(sprintf('Written items: %s', $result->getItemWriteCount()));
+    }
+}
