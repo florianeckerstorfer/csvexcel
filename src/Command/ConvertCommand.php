@@ -4,8 +4,10 @@ namespace FlorianEc\CsvExcel\Command;
 
 use PHPExcel_IOFactory;
 use Plum\Plum\Converter\HeaderConverter;
+use Plum\Plum\Converter\NullConverter;
 use Plum\Plum\Filter\SkipFirstFilter;
 use Plum\Plum\Workflow;
+use Plum\Plum\Writer\ArrayWriter;
 use Plum\PlumConsole\ConsoleProgressWriter;
 use Plum\PlumCsv\CsvReader;
 use Plum\PlumCsv\CsvWriter;
@@ -49,14 +51,14 @@ class ConvertCommand extends Command
         $output->writeln(sprintf('Convert <info>%s</info> into <info>%s</info>', $inputFormat, $outputFormat));
 
         $workflow = new Workflow();
+
         if ($inputFormat === 'csv') {
             $reader = new CsvReader($inputFile);
             $workflow->addConverter(new HeaderConverter());
             $workflow->addFilter(new SkipFirstFilter(1));
         } else if ($inputFormat === 'xlsx' || $inputFormat === 'xls') {
             $reader = new ExcelReader(PHPExcel_IOFactory::load($inputFile));
-            $workflow->addConverter(new HeaderConverter());
-            $workflow->addFilter(new SkipFirstFilter(1));
+            $reader->setHeaderRow(0);
         } else {
             $output->writeln(sprintf('<error>Invalid input file format %s.</error>', $inputFormat));
 
@@ -74,6 +76,8 @@ class ConvertCommand extends Command
 
             return;
         }
+
+        $workflow->addConverter(new NullConverter());
         $workflow->addWriter($writer);
         $workflow->addWriter(new ConsoleProgressWriter(new ProgressBar($output, $reader->count())));
 
@@ -83,5 +87,14 @@ class ConvertCommand extends Command
         $output->writeln(sprintf('Read items:    %d', $result->getReadCount()));
         $output->writeln(sprintf('Written items: %d', $result->getItemWriteCount()));
         $output->writeln(sprintf('Error items:   %d', $result->getErrorCount()));
+
+        if ($output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
+            foreach ($result->getExceptions() as $exception) {
+                $output->writeln(sprintf('- <error>%s</error>', $exception->getMessage()));
+                if ($output->getVerbosity() >= OutputInterface::VERBOSITY_VERY_VERBOSE) {
+                    $output->writeln(sprintf('<error>%s</error>', $exception->getTraceAsString()));
+                }
+            }
+        }
     }
 }

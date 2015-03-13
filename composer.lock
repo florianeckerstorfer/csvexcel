@@ -124,12 +124,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum.git",
-                "reference": "31114da577135e1c833b84a05b3b654cb2e52d1f"
+                "reference": "5591e1ab97b1ac1c6ad67fdc22aa66842985e574"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum/zipball/31114da577135e1c833b84a05b3b654cb2e52d1f",
-                "reference": "31114da577135e1c833b84a05b3b654cb2e52d1f",
+                "url": "https://api.github.com/repos/plumphp/plum/zipball/5591e1ab97b1ac1c6ad67fdc22aa66842985e574",
+                "reference": "5591e1ab97b1ac1c6ad67fdc22aa66842985e574",
                 "shasum": ""
             },
             "require": {
@@ -157,7 +157,7 @@
                 }
             ],
             "description": "Plum is a data processing pipeline that helps you to write structured, reusable and well tested data processing code.",
-            "time": "2015-03-13 13:00:22"
+            "time": "2015-03-13 14:45:30"
         },
         {
             "name": "plumphp/plum-console",
@@ -206,12 +206,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum-csv.git",
-                "reference": "007cc0dad93af25fbf35900099a19625f364a97b"
+                "reference": "99fe52dc85f814c1ac305545dfe31dde41da7494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum-csv/zipball/007cc0dad93af25fbf35900099a19625f364a97b",
-                "reference": "007cc0dad93af25fbf35900099a19625f364a97b",
+                "url": "https://api.github.com/repos/plumphp/plum-csv/zipball/99fe52dc85f814c1ac305545dfe31dde41da7494",
+                "reference": "99fe52dc85f814c1ac305545dfe31dde41da7494",
                 "shasum": ""
             },
             "require": {
@@ -229,7 +229,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-03-13 13:15:18"
+            "time": "2015-03-13 13:24:57"
         },
         {
             "name": "plumphp/plum-excel",
@@ -237,12 +237,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum-excel.git",
-                "reference": "49c96851f2034ec65a7d395952d7f23871de5814"
+                "reference": "f81d04adce4d21865932996c3b7abe5f71c8951b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum-excel/zipball/49c96851f2034ec65a7d395952d7f23871de5814",
-                "reference": "49c96851f2034ec65a7d395952d7f23871de5814",
+                "url": "https://api.github.com/repos/plumphp/plum-excel/zipball/f81d04adce4d21865932996c3b7abe5f71c8951b",
+                "reference": "f81d04adce4d21865932996c3b7abe5f71c8951b",
                 "shasum": ""
             },
             "require": {
@@ -261,7 +261,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-03-04 13:06:42"
+            "time": "2015-03-13 14:29:33"
         },
         {
             "name": "symfony/console",
