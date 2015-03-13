@@ -1,5 +1,18 @@
 {
-    "directories": ["src", "vendor"],
+    "directories": [
+        "src",
+        "vendor/composer",
+        "vendor/league/csv/src",
+        "vendor/phpoffice/phpexcel/Classes",
+        "vendor/plumphp/plum/src",
+        "vendor/plumphp/plum-console/src",
+        "vendor/plumphp/plum-csv/src",
+        "vendor/plumphp/plum-excel/src",
+        "vendor/symfony"
+    ],
+    "files": [
+        "vendor/autoload.php"
+    ],
     "main": "bin/csvexcel",
     "output": "csvexcel.phar",
     "stub": true
