@@ -1,13 +1,20 @@
 {
-  "name": "florianeckerstorfer/csvexcel",
-  "require": {
+  "name":       "florianeckerstorfer/csvexcel",
+  "descrption": "CSV⟷Excel Converter",
+  "author":     {
+    "name":       "Florian Eckerstorfer",
+    "email":      "florian@eckerstorfer.co",
+    "homepage":   "https://florian.ec"
+  },
+  "license":    "MIT",
+  "require":    {
     "plumphp/plum":         "dev-master@dev",
     "plumphp/plum-csv":     "dev-master@dev",
     "plumphp/plum-excel":   "dev-master@dev",
     "plumphp/plum-console": "dev-master@dev",
     "symfony/console":      "~2.6"
   },
-  "autoload": {
+  "autoload":   {
     "psr-4": {
       "FlorianEc\\CsvExcel\\": "src"
     }
