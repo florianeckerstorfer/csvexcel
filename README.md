@@ -5,6 +5,11 @@ csvexcel
 
 Developed by [Florian Eckerstorfer](https://florian.ec) in Vienna, Europe.
 
+
+Installation
+------------
+
+
 Usage
 -----
 
