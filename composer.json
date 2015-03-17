@@ -18,5 +18,8 @@
     "psr-4": {
       "FlorianEc\\CsvExcel\\": "src"
     }
-  }
+  },
+  "bin":        [
+    "bin/csvexcel"
+  ]
 }
