@@ -5,6 +5,7 @@ csvexcel
 
 Developed by [Florian Eckerstorfer](https://florian.ec) in Vienna, Europe.
 
+![csvexcel Screencast](https://raw.githubusercontent.com/florianeckerstorfer/csvexcel/master/docs/csvexcel.gif)
 
 Installation
 ------------
@@ -14,6 +15,6 @@ Usage
 -----
 
 ```shell
-$ csvexcel countries.csv countries.xlsx
-$ csvexcel countries.xlsx countries.csv
+$ csvexcel countries.csv
+$ csvexcel countries.xlsx
 ```
