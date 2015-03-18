@@ -34,7 +34,7 @@ class ConvertCommand extends Command
         $this->setName('convert')
              ->setDescription('Convert CSV to Excel or Excel to CSV')
              ->addArgument('input', InputArgument::REQUIRED, 'Input file')
-             ->addArgument('output', InputArgument::REQUIRED, 'Output file');
+             ->addArgument('output', InputArgument::OPTIONAL, 'Output file');
     }
 
     /**
@@ -46,7 +46,7 @@ class ConvertCommand extends Command
         $inputFile  = $input->getArgument('input');
         $outputFile = $input->getArgument('output');
         $inputFormat  = substr($inputFile, strrpos($inputFile, '.')+1);
-        $outputFormat = substr($outputFile, strrpos($outputFile, '.')+1);
+        $outputFormat = $outputFile ? substr($outputFile, strrpos($outputFile, '.')+1) : null;
 
         $output->writeln(sprintf('Convert <info>%s</info> into <info>%s</info>', $inputFormat, $outputFormat));
 
@@ -56,9 +56,13 @@ class ConvertCommand extends Command
             $reader = new CsvReader($inputFile);
             $workflow->addConverter(new HeaderConverter());
             $workflow->addFilter(new SkipFirstFilter(1));
+            $outputFormat = $outputFormat ? $outputFormat : 'xlsx';
+            $outputFile   = $outputFile ? $outputFile : str_replace('.csv', '.xlsx', $inputFile);
         } else if ($inputFormat === 'xlsx' || $inputFormat === 'xls') {
             $reader = new ExcelReader(PHPExcel_IOFactory::load($inputFile));
             $reader->setHeaderRow(0);
+            $outputFormat = $outputFormat ? $outputFormat : 'csv';
+            $outputFile   = $outputFile   ? $outputFile : str_replace(['xlsx', 'xls'], 'csv', $inputFile);
         } else {
             $output->writeln(sprintf('<error>Invalid input file format %s.</error>', $inputFormat));
 
@@ -84,9 +88,9 @@ class ConvertCommand extends Command
         $result = $workflow->process($reader);
 
         $output->writeln('');
-        $output->writeln(sprintf('Read items:    %d', $result->getReadCount()));
-        $output->writeln(sprintf('Written items: %d', $result->getItemWriteCount()));
-        $output->writeln(sprintf('Error items:   %d', $result->getErrorCount()));
+        $output->writeln(sprintf('Read rows:    %d', $result->getReadCount()));
+        $output->writeln(sprintf('Written rows: %d', $result->getItemWriteCount()));
+        $output->writeln(sprintf('Error rows:   %d', $result->getErrorCount()));
 
         if ($output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
             foreach ($result->getExceptions() as $exception) {
