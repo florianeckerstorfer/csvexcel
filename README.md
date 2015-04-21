@@ -21,7 +21,7 @@ You can install `csvexcel` using [Composer](https://getcomposer.org):
 composer global require florianeckerstorfer/csvexcel:@stable
 ```
 
-*Please make sure that the Composer bin directory (`~/.composer/vendor/bin) is in your path.*
+*Please make sure that the Composer bin directory (`~/.composer/vendor/bin`) is in your path.*
 
 ### Variant 2: Download PHAR
 
