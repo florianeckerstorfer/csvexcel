@@ -54,13 +54,10 @@ class ConvertCommand extends Command
 
         if ($inputFormat === 'csv') {
             $reader = new CsvReader($inputFile);
-            $workflow->addConverter(new HeaderConverter());
-            $workflow->addFilter(new SkipFirstFilter(1));
             $outputFormat = $outputFormat ? $outputFormat : 'xlsx';
             $outputFile   = $outputFile ? $outputFile : str_replace('.csv', '.xlsx', $inputFile);
         } else if ($inputFormat === 'xlsx' || $inputFormat === 'xls') {
             $reader = new ExcelReader(PHPExcel_IOFactory::load($inputFile));
-            $reader->setHeaderRow(0);
             $outputFormat = $outputFormat ? $outputFormat : 'csv';
             $outputFile   = $outputFile   ? $outputFile : str_replace(['xlsx', 'xls'], 'csv', $inputFile);
         } else {
@@ -68,6 +65,9 @@ class ConvertCommand extends Command
 
             return;
         }
+
+        $workflow->addConverter(new HeaderConverter());
+        $workflow->addFilter(new SkipFirstFilter(1));
 
         if ($outputFormat === 'csv') {
             $writer = new CsvWriter($outputFile);

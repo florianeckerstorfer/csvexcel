@@ -4,8 +4,49 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6410ba7c54f651d84ca9f87328a706e",
+    "hash": "d6186cac255c3138b965910761fdb358",
     "packages": [
+        {
+            "name": "cocur/vale",
+            "version": "0.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cocur/vale.git",
+                "reference": "6bf6d4d538ac75c27dc42a8711a2aef16de273f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cocur/vale/zipball/6bf6d4d538ac75c27dc42a8711a2aef16de273f9",
+                "reference": "6bf6d4d538ac75c27dc42a8711a2aef16de273f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cocur\\Vale\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "https://florian.ec"
+                }
+            ],
+            "description": "Vale is a helper utility that lets you get and set values in arbitrary nested arrays and objects.",
+            "time": "2015-03-24 10:17:57"
+        },
         {
             "name": "league/csv",
             "version": "6.3.0",
@@ -120,20 +161,22 @@
         },
         {
             "name": "plumphp/plum",
-            "version": "dev-master",
+            "version": "0.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum.git",
-                "reference": "5591e1ab97b1ac1c6ad67fdc22aa66842985e574"
+                "reference": "771411f00c202d57e653ecfd3717aa3a31d160cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum/zipball/5591e1ab97b1ac1c6ad67fdc22aa66842985e574",
-                "reference": "5591e1ab97b1ac1c6ad67fdc22aa66842985e574",
+                "url": "https://api.github.com/repos/plumphp/plum/zipball/771411f00c202d57e653ecfd3717aa3a31d160cf",
+                "reference": "771411f00c202d57e653ecfd3717aa3a31d160cf",
                 "shasum": ""
             },
             "require": {
-                "symfony/property-access": "~2.4"
+                "cocur/vale": "~0.2",
+                "php": ">=5.4",
+                "psr/log": "~1.0"
             },
             "require-dev": {
                 "mikey179/vfsstream": "~1.4",
@@ -153,28 +196,30 @@
             "authors": [
                 {
                     "name": "Florian Eckerstorfer",
-                    "email": "florian@eckerstorfer.co"
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "https://florian.ec"
                 }
             ],
             "description": "Plum is a data processing pipeline that helps you to write structured, reusable and well tested data processing code.",
-            "time": "2015-03-13 14:45:30"
+            "time": "2015-04-21 09:27:30"
         },
         {
             "name": "plumphp/plum-console",
-            "version": "dev-master",
+            "version": "0.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum-console.git",
-                "reference": "ad11e55dc1ce9b2e0aecde3fa6b527e5ff283948"
+                "reference": "f270dd47f3a7069662bc4c0126914bc454e4ba9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum-console/zipball/ad11e55dc1ce9b2e0aecde3fa6b527e5ff283948",
-                "reference": "ad11e55dc1ce9b2e0aecde3fa6b527e5ff283948",
+                "url": "https://api.github.com/repos/plumphp/plum-console/zipball/f270dd47f3a7069662bc4c0126914bc454e4ba9b",
+                "reference": "f270dd47f3a7069662bc4c0126914bc454e4ba9b",
                 "shasum": ""
             },
             "require": {
-                "plumphp/plum": "dev-master@dev",
+                "php": ">=5.4",
+                "plumphp/plum": "^0.2",
                 "symfony/console": "~2.5"
             },
             "require-dev": {
@@ -194,29 +239,31 @@
             "authors": [
                 {
                     "name": "Florian Eckerstorfer",
-                    "email": "florian@eckerstorfer.co"
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "https://florian.ec"
                 }
             ],
             "description": "Integrates the Symfony Console component into Plum.",
-            "time": "2015-02-11 21:56:56"
+            "time": "2015-04-21 10:14:28"
         },
         {
             "name": "plumphp/plum-csv",
-            "version": "dev-master",
+            "version": "0.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum-csv.git",
-                "reference": "99fe52dc85f814c1ac305545dfe31dde41da7494"
+                "reference": "d0521ab2686723f6dd65d53197f5f62b5fc3d374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum-csv/zipball/99fe52dc85f814c1ac305545dfe31dde41da7494",
-                "reference": "99fe52dc85f814c1ac305545dfe31dde41da7494",
+                "url": "https://api.github.com/repos/plumphp/plum-csv/zipball/d0521ab2686723f6dd65d53197f5f62b5fc3d374",
+                "reference": "d0521ab2686723f6dd65d53197f5f62b5fc3d374",
                 "shasum": ""
             },
             "require": {
                 "league/csv": "~6.3",
-                "plumphp/plum": "dev-master@dev"
+                "php": ">=5.4",
+                "plumphp/plum": "~0.1"
             },
             "require-dev": {
                 "mikey179/vfsstream": "~1.4",
@@ -229,25 +276,36 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-03-13 13:24:57"
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "https://florian.ec"
+                }
+            ],
+            "description": "PlumCsv includes CSV readers and writers for Plum. Plum is a data processing pipeline for PHP.",
+            "time": "2015-03-24 10:14:59"
         },
         {
             "name": "plumphp/plum-excel",
-            "version": "dev-master",
+            "version": "0.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plumphp/plum-excel.git",
-                "reference": "f81d04adce4d21865932996c3b7abe5f71c8951b"
+                "reference": "3fb0d27cc0ba6d7a8a7eafa36b7ca785992a20b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plumphp/plum-excel/zipball/f81d04adce4d21865932996c3b7abe5f71c8951b",
-                "reference": "f81d04adce4d21865932996c3b7abe5f71c8951b",
+                "url": "https://api.github.com/repos/plumphp/plum-excel/zipball/3fb0d27cc0ba6d7a8a7eafa36b7ca785992a20b0",
+                "reference": "3fb0d27cc0ba6d7a8a7eafa36b7ca785992a20b0",
                 "shasum": ""
             },
             "require": {
                 "phpoffice/phpexcel": "~1.8",
-                "plumphp/plum": "dev-master@dev"
+                "plumphp/plum": "^0.2"
             },
             "require-dev": {
                 "mikey179/vfsstream": "~1.4",
@@ -261,21 +319,64 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-03-13 14:29:33"
+            "time": "2015-04-21 10:04:56"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "bf2c13de4300e227d7b2fd08027673a79c519987"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/bf2c13de4300e227d7b2fd08027673a79c519987",
+                "reference": "bf2c13de4300e227d7b2fd08027673a79c519987",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2015-03-26 14:39:45"
         },
         {
             "name": "symfony/console",
-            "version": "2.7.x-dev",
+            "version": "2.8.x-dev",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "3ed3fb0c80ee0292b19a1a78234ef7801cc7f0e8"
+                "reference": "32f19477d488649a77227d57a7f5775b17cb336b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/3ed3fb0c80ee0292b19a1a78234ef7801cc7f0e8",
-                "reference": "3ed3fb0c80ee0292b19a1a78234ef7801cc7f0e8",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/32f19477d488649a77227d57a7f5775b17cb336b",
+                "reference": "32f19477d488649a77227d57a7f5775b17cb336b",
                 "shasum": ""
             },
             "require": {
@@ -295,7 +396,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.7-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -319,79 +420,13 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-03-13 17:40:40"
-        },
-        {
-            "name": "symfony/property-access",
-            "version": "2.7.x-dev",
-            "target-dir": "Symfony/Component/PropertyAccess",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/PropertyAccess.git",
-                "reference": "7c3a33ba466a61bfdbca7d89118f99cf25a588c1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/PropertyAccess/zipball/7c3a33ba466a61bfdbca7d89118f99cf25a588c1",
-                "reference": "7c3a33ba466a61bfdbca7d89118f99cf25a588c1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7|~3.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\PropertyAccess\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "Symfony PropertyAccess Component",
-            "homepage": "http://symfony.com",
-            "keywords": [
-                "access",
-                "array",
-                "extraction",
-                "index",
-                "injection",
-                "object",
-                "property",
-                "property path",
-                "reflection"
-            ],
-            "time": "2015-03-07 07:43:00"
+            "time": "2015-04-11 08:55:16"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "plumphp/plum": 20,
-        "plumphp/plum-csv": 20,
-        "plumphp/plum-excel": 20,
-        "plumphp/plum-console": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

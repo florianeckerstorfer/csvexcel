@@ -8,10 +8,10 @@
   },
   "license":    "MIT",
   "require":    {
-    "plumphp/plum":         "dev-master@dev",
-    "plumphp/plum-csv":     "dev-master@dev",
-    "plumphp/plum-excel":   "dev-master@dev",
-    "plumphp/plum-console": "dev-master@dev",
+    "plumphp/plum":         "~0.1",
+    "plumphp/plum-csv":     "^0.1",
+    "plumphp/plum-excel":   "^0.1",
+    "plumphp/plum-console": "^0.2",
     "symfony/console":      "~2.6"
   },
   "autoload":   {
