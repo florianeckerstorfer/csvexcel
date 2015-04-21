@@ -21,6 +21,5 @@
   },
   "bin":        [
     "bin/csvexcel"
-  ],
-  "minimum-stability": "dev"
+  ]
 }
