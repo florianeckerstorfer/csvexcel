@@ -59,7 +59,7 @@ class ConvertCommand extends Command
         } else if ($inputFormat === 'xlsx' || $inputFormat === 'xls') {
             $reader = new ExcelReader(PHPExcel_IOFactory::load($inputFile));
             $outputFormat = $outputFormat ? $outputFormat : 'csv';
-            $outputFile   = $outputFile   ? $outputFile : str_replace(['xlsx', 'xls'], 'csv', $inputFile);
+            $outputFile   = $outputFile   ? $outputFile : str_replace(['.xlsx', '.xls'], '.csv', $inputFile);
         } else {
             $output->writeln(sprintf('<error>Invalid input file format %s.</error>', $inputFormat));
 
