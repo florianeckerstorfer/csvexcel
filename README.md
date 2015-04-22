@@ -1,7 +1,7 @@
 csvexcel
 ========
 
-> CSV⟷Excel Converter
+> CSV↔︎Excel Converter
 
 ![csvexcel Screencast](https://raw.githubusercontent.com/florianeckerstorfer/csvexcel/master/docs/csvexcel.gif)
 
